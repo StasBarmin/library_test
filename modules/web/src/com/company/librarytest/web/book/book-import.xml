@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.librarytest.web.book.BookImport"
+        messagesPack="com.company.librarytest.web.book">
+    <actions>
+        <action id="assign"
+                invoke="assign"/>
+        <action id="close"
+                invoke="close"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <textField id="URLfield"
+                   caption="msg://Enter URL"/>
+        <hbox spacing="true">
+            <button id="OkBtn"
+                    caption="msg://Ok"
+                    action="assign"/>
+            <button id="CancBtn"
+                    caption="msg://Cancel"
+                    action="close"/>
+        </hbox>
+    </layout>
+</window>

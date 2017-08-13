@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.librarytest.web.genre.GenreBrowse"
+        focusComponent="genresTable"
+        lookupComponent="genresTable"
+        messagesPack="com.company.librarytest.web.genre">
+    <dsContext>
+        <groupDatasource id="genresDs"
+                         class="com.company.librarytest.entity.Genre"
+                         view="_local">
+            <query>
+                <![CDATA[select e from librarytest$Genre e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="genresTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="genresTable"
+                datasource="genresDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="genresTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="state"/>
+                <column id="name"/>
+            </columns>
+            <rows datasource="genresDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="genresTable.create"/>
+                <button id="editBtn"
+                        action="genresTable.edit"/>
+                <button id="removeBtn"
+                        action="genresTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>
